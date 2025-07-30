@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À Propos de Marie",
+    "foundation": "Fondation",
+    "political": "Parcours Politique",
+    "media": "Médias & Actualités",
+    "getInvolved": "S'Impliquer"
+  },
+  "home": {
+    "title": "Marie Mwape Kashimbo",
+    "subtitle": "Animée par la compassion, engagée pour le changement",
+    "heroText": "Philanthrope congolaise, fondatrice de la Fondation FMMPS, et figure politique émergente dédiée à transformer des vies en République Démocratique du Congo.",
+    "learnMore": "En Savoir Plus",
+    "mission": "Mission",
+    "missionText": "Créer un changement durable par l'action compassionnelle, en soutenant les plus vulnérables de notre société tout en plaidant pour une meilleure gouvernance et la justice sociale."
+  },
+  "about": {
+    "title": "À Propos de Marie Mwape Kashimbo",
+    "subtitle": "Une Vie Dédiée au Service",
+    "biography": "Marie Mwape Kashimbo est une philanthrope congolaise éminente et activiste sociale qui a consacré sa vie à améliorer les conditions des populations les plus vulnérables en République Démocratique du Congo. Par son engagement inébranlable envers la justice sociale et la dignité humaine, elle est devenue un phare d'espoir pour des milliers de personnes.",
+    "values": "Valeurs & Mission",
+    "valuesText": "Guidée par les principes de compassion, d'intégrité et de responsabilité sociale, Marie croit au pouvoir de l'action collective pour créer un changement significatif. Son travail s'étend à travers plusieurs secteurs incluant la santé, l'éducation et le bien-être social.",
+    "journey": "Son Parcours",
+    "journeyText": "De ses débuts comme organisatrice communautaire à la fondation de la Fondation FMMPS et son entrée dans l'arène politique, le parcours de Marie reflète son engagement profond à servir les autres et à construire un avenir meilleur pour tous les Congolais."
+  },
+  "foundation": {
+    "title": "Fondation FMMPS",
+    "subtitle": "Transformer des Vies par l'Action Compassionnelle",
+    "overview": "La Fondation FMMPS, fondée par Marie Mwape Kashimbo, se consacre au soutien des membres les plus vulnérables de la société, notamment les orphelins, les personnes handicapées, les albinos et ceux confrontés à des défis de santé mentale.",
+    "projects": "Nos Projets",
+    "impact": "Histoires d'Impact",
+    "impactText": "Grâce à des interventions directes et des programmes de soutien communautaire, la Fondation a touché des milliers de vies, fournissant des services essentiels, des soins de santé et de l'espoir à ceux qui en ont le plus besoin."
+  },
+  "political": {
+    "title": "Parcours Politique",
+    "subtitle": "Plaider pour le Changement par la Gouvernance",
+    "nogec": "Rejoindre NOGEC",
+    "nogecText": "En juillet 2025, Marie Mwape Kashimbo a rejoint NOGEC (Organisation Nationale pour la Bonne Gouvernance et le Changement), marquant son entrée formelle dans l'arène politique pour plaider en faveur d'une meilleure gouvernance et de politiques sociales.",
+    "advocacy": "Travail de Plaidoyer",
+    "advocacyText": "Sa plateforme politique se concentre sur le bien-être social, la réforme des soins de santé, l'accès à l'éducation et la création de politiques qui protègent les populations les plus vulnérables de la société congolaise.",
+    "goals": "Objectifs Politiques",
+    "goalsText": "Œuvrer pour une réforme sociale globale, l'amélioration des systèmes de santé et des structures de gouvernance qui privilégient la dignité humaine et la justice sociale."
+  },
+  "media": {
+    "title": "Médias & Actualités",
+    "subtitle": "Couverture et Reconnaissance",
+    "articles": "Articles Récents",
+    "recognition": "Prix & Reconnaissance",
+    "recognitionText": "Le travail de Marie a été reconnu par divers prix et couvertures médiatiques, soulignant ses contributions significatives à la société congolaise."
+  },
+  "getInvolved": {
+    "title": "S'Impliquer",
+    "subtitle": "Rejoignez-nous pour Faire la Différence",
+    "volunteer": "Bénévolat",
+    "volunteerText": "Rejoignez notre équipe de bénévoles dévoués et aidez-nous à étendre notre portée dans les communautés à travers la RDC.",
+    "donate": "Soutenez Notre Cause",
+    "donateText": "Votre contribution nous aide à continuer notre travail vital de soutien aux populations vulnérables.",
+    "contact": "Nous Contacter",
+    "contactText": "Contactez-nous pour en savoir plus sur notre travail ou discuter d'opportunités de partenariat.",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "send": "Envoyer le Message",
+    "donateNow": "Faire un Don"
+  },
+  "footer": {
+    "copyright": "© 2024 Marie Mwape Kashimbo. Tous droits réservés.",
+    "mission": "Animée par la compassion, engagée pour le changement."
+  }
+}

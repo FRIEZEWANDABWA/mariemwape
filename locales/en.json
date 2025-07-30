@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Marie",
+    "foundation": "Foundation",
+    "political": "Political Journey",
+    "media": "Media & News",
+    "getInvolved": "Get Involved"
+  },
+  "home": {
+    "title": "Marie Mwape Kashimbo",
+    "subtitle": "Driven by Compassion, Committed to Change",
+    "heroText": "Congolese philanthropist, founder of the FMMPS Foundation, and emerging political figure dedicated to transforming lives in the Democratic Republic of Congo.",
+    "learnMore": "Learn More",
+    "mission": "Mission",
+    "missionText": "To create lasting change through compassionate action, supporting the most vulnerable in our society while advocating for better governance and social justice."
+  },
+  "about": {
+    "title": "About Marie Mwape Kashimbo",
+    "subtitle": "A Life Dedicated to Service",
+    "biography": "Marie Mwape Kashimbo is a prominent Congolese philanthropist and social activist who has dedicated her life to improving the conditions of the most vulnerable populations in the Democratic Republic of Congo. Through her unwavering commitment to social justice and human dignity, she has become a beacon of hope for thousands of people.",
+    "values": "Values & Mission",
+    "valuesText": "Guided by principles of compassion, integrity, and social responsibility, Marie believes in the power of collective action to create meaningful change. Her work spans across multiple sectors including healthcare, education, and social welfare.",
+    "journey": "Her Journey",
+    "journeyText": "From her early days as a community organizer to founding the FMMPS Foundation and entering the political arena, Marie's journey reflects her deep commitment to serving others and building a better future for all Congolese people."
+  },
+  "foundation": {
+    "title": "FMMPS Foundation",
+    "subtitle": "Transforming Lives Through Compassionate Action",
+    "overview": "The FMMPS Foundation, founded by Marie Mwape Kashimbo, is dedicated to supporting the most vulnerable members of society including orphans, people with disabilities, albinos, and those facing mental health challenges.",
+    "projects": "Our Projects",
+    "impact": "Impact Stories",
+    "impactText": "Through direct intervention and community support programs, the Foundation has touched thousands of lives, providing essential services, healthcare, and hope to those who need it most."
+  },
+  "political": {
+    "title": "Political Journey",
+    "subtitle": "Advocating for Change Through Governance",
+    "nogec": "Joining NOGEC",
+    "nogecText": "In July 2025, Marie Mwape Kashimbo joined NOGEC (National Organization for Good Governance and Change), marking her formal entry into the political arena to advocate for better governance and social policies.",
+    "advocacy": "Advocacy Work",
+    "advocacyText": "Her political platform focuses on social welfare, healthcare reform, education access, and creating policies that protect the most vulnerable populations in Congolese society.",
+    "goals": "Policy Goals",
+    "goalsText": "Working towards comprehensive social reform, improved healthcare systems, and governance structures that prioritize human dignity and social justice."
+  },
+  "media": {
+    "title": "Media & News",
+    "subtitle": "Coverage and Recognition",
+    "articles": "Recent Articles",
+    "recognition": "Awards & Recognition",
+    "recognitionText": "Marie's work has been recognized through various awards and media coverage, highlighting her significant contributions to Congolese society."
+  },
+  "getInvolved": {
+    "title": "Get Involved",
+    "subtitle": "Join Us in Making a Difference",
+    "volunteer": "Volunteer",
+    "volunteerText": "Join our team of dedicated volunteers and help us expand our reach in communities across the DRC.",
+    "donate": "Support Our Cause",
+    "donateText": "Your contribution helps us continue our vital work supporting vulnerable populations.",
+    "contact": "Contact Us",
+    "contactText": "Get in touch to learn more about our work or discuss partnership opportunities.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "donateNow": "Donate Now"
+  },
+  "footer": {
+    "copyright": "© 2024 Marie Mwape Kashimbo. All rights reserved.",
+    "mission": "Driven by compassion, committed to change."
+  }
+}
