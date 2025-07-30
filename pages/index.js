@@ -1,10 +1,38 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, Heart, Users, Globe } from 'lucide-react';
+import { ArrowRight, Heart, Users, Globe, Star, Award, Zap } from 'lucide-react';
 
 export default function Home() {
   const { t } = useTranslation();
+
+  const stats = [
+    { icon: Users, number: '1000+', label: 'Lives Impacted' },
+    { icon: Heart, number: '500+', label: 'Children Supported' },
+    { icon: Globe, number: '15+', label: 'Communities Reached' },
+    { icon: Award, number: '3+', label: 'Years of Service' },
+  ];
+
+  const features = [
+    {
+      icon: Heart,
+      title: 'Compassionate Leadership',
+      description: 'Leading with empathy and understanding for those facing challenges.',
+      gradient: 'from-red-400 to-pink-500'
+    },
+    {
+      icon: Users,
+      title: 'Community Building',
+      description: 'Strengthening communities through collective action and support.',
+      gradient: 'from-blue-400 to-indigo-500'
+    },
+    {
+      icon: Zap,
+      title: 'Transformative Change',
+      description: 'Creating lasting impact through dedicated advocacy and action.',
+      gradient: 'from-yellow-400 to-orange-500'
+    }
+  ];
 
   return (
     <>
@@ -15,109 +43,151 @@ export default function Home() {
       </Head>
 
       {/* Hero Section */}
-      <section className="hero-gradient py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative min-h-screen flex items-center hero-gradient overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-hero-pattern opacity-20"></div>
+        
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-accent-400 to-secondary-400 rounded-full opacity-20 floating-element"></div>
+        <div className="absolute top-40 right-20 w-16 h-16 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full opacity-30 floating-element" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-40 left-20 w-12 h-12 bg-gradient-to-r from-secondary-400 to-primary-400 rounded-full opacity-25 floating-element" style={{animationDelay: '4s'}}></div>
+
+        <div className="container-custom relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-serif font-bold text-earth-800 mb-6">
-                {t('home.title')}
+            <div className="animate-slide-up">
+              <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6">
+                <span className="text-gradient">{t('home.title')}</span>
               </h1>
-              <p className="text-xl text-primary-700 font-medium mb-6">
+              <p className="text-2xl md:text-3xl font-medium mb-6 bg-gradient-to-r from-primary-700 to-accent-600 bg-clip-text text-transparent">
                 {t('home.subtitle')}
               </p>
-              <p className="text-lg text-earth-700 mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
                 {t('home.heroText')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/about" className="btn-primary inline-flex items-center justify-center">
+                <Link href="/about" className="btn-primary inline-flex items-center justify-center group">
                   {t('home.learnMore')}
-                  <ArrowRight className="ml-2" size={20} />
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                 </Link>
                 <Link href="/get-involved" className="btn-secondary inline-flex items-center justify-center">
                   {t('getInvolved.title')}
                 </Link>
               </div>
             </div>
-            <div className="relative">
-              <div className="w-full h-96 bg-earth-200 rounded-2xl flex items-center justify-center">
-                <p className="text-earth-600 text-center px-4">
-                  Marie Mwape Kashimbo Portrait<br />
-                  <span className="text-sm">(Image placeholder)</span>
-                </p>
+            
+            <div className="relative animate-fade-in" style={{animationDelay: '0.3s'}}>
+              <div className="relative">
+                <div className="w-full h-96 bg-gradient-to-br from-primary-200 via-accent-200 to-secondary-200 rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500"></div>
+                <div className="absolute inset-4 bg-white rounded-2xl flex items-center justify-center shadow-xl">
+                  <div className="text-center">
+                    <div className="w-24 h-24 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                      <Heart className="text-white" size={40} />
+                    </div>
+                    <p className="text-gray-600 font-medium">Marie Mwape Kashimbo</p>
+                    <p className="text-sm text-gray-500">Portrait Placeholder</p>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center animate-slide-up" style={{animationDelay: `${index * 0.1}s`}}>
+                <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform">
+                  <stat.icon className="text-white" size={28} />
+                </div>
+                <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">{stat.number}</div>
+                <p className="text-gray-600 font-medium">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Mission Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-serif font-bold text-earth-800 mb-4">
+      <section className="section-padding bg-gradient-to-br from-orange-50 via-white to-blue-50">
+        <div className="container-custom">
+          <div className="text-center mb-16 animate-slide-up">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-gradient">
               {t('home.mission')}
             </h2>
-            <p className="text-lg text-earth-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
               {t('home.missionText')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="card text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Heart className="text-primary-600" size={32} />
+            {features.map((feature, index) => (
+              <div key={index} className="card group animate-slide-up" style={{animationDelay: `${index * 0.2}s`}}>
+                <div className={`w-16 h-16 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                  <feature.icon className="text-white" size={32} />
+                </div>
+                <h3 className="text-2xl font-serif font-semibold mb-4 text-gray-800">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="text-xl font-serif font-semibold text-earth-800 mb-3">
-                Compassion
-              </h3>
-              <p className="text-earth-600">
-                Driven by deep empathy for those facing challenges and hardships in our communities.
-              </p>
-            </div>
-
-            <div className="card text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="text-primary-600" size={32} />
-              </div>
-              <h3 className="text-xl font-serif font-semibold text-earth-800 mb-3">
-                Community
-              </h3>
-              <p className="text-earth-600">
-                Building stronger communities through collective action and mutual support.
-              </p>
-            </div>
-
-            <div className="card text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Globe className="text-primary-600" size={32} />
-              </div>
-              <h3 className="text-xl font-serif font-semibold text-earth-800 mb-3">
-                Change
-              </h3>
-              <p className="text-earth-600">
-                Creating lasting transformation through dedicated advocacy and action.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-earth-50">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-serif font-bold text-earth-800 mb-6">
-            Join the Movement
-          </h2>
-          <p className="text-lg text-earth-600 mb-8">
-            Together, we can create meaningful change and build a better future for all Congolese people.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/foundation" className="btn-primary">
-              Learn About Our Work
-            </Link>
-            <Link href="/get-involved" className="btn-secondary">
-              Get Involved Today
-            </Link>
+      <section className="section-padding bg-gradient-to-r from-primary-600 via-accent-600 to-secondary-600 text-white relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full"></div>
+          <div className="absolute bottom-10 right-10 w-24 h-24 bg-white/10 rounded-full"></div>
+          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/5 rounded-full"></div>
+        </div>
+
+        <div className="container-custom relative z-10">
+          <div className="text-center animate-slide-up">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+              Join the Movement
+            </h2>
+            <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed opacity-90">
+              Together, we can create meaningful change and build a better future for all Congolese people. Your support makes the difference.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/foundation" className="btn-secondary bg-white text-primary-600 hover:bg-gray-50">
+                Learn About Our Work
+              </Link>
+              <Link href="/get-involved" className="btn-primary bg-white/20 hover:bg-white/30 backdrop-blur-sm">
+                Get Involved Today
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonial Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto text-center animate-slide-up">
+            <div className="flex justify-center mb-6">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="text-yellow-400 fill-current" size={24} />
+              ))}
+            </div>
+            <blockquote className="text-2xl md:text-3xl font-serif italic text-gray-700 mb-8 leading-relaxed">
+              "Marie's dedication to our community has been transformational. Through her foundation, she has brought hope and tangible change to countless families."
+            </blockquote>
+            <div className="flex items-center justify-center space-x-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full"></div>
+              <div className="text-left">
+                <p className="font-semibold text-gray-800">Community Leader</p>
+                <p className="text-gray-600">Kisangani, DRC</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
