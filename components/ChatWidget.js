@@ -1,13 +1,14 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { MessageCircle, X, Send } from 'lucide-react';
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState('');
+  const { t } = useTranslation();
 
   const handleSend = () => {
     if (message.trim()) {
-      // Handle message sending logic here
       console.log('Message sent:', message);
       setMessage('');
     }
@@ -15,7 +16,6 @@ export default function ChatWidget() {
 
   return (
     <>
-      {/* Chat Button */}
       <div className="fixed bottom-6 right-6 z-50">
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -25,16 +25,13 @@ export default function ChatWidget() {
         </button>
       </div>
 
-      {/* Chat Window */}
       {isOpen && (
         <div className="fixed bottom-24 right-6 w-80 h-96 bg-white rounded-2xl shadow-2xl z-40 border border-gray-200 animate-slide-up">
-          {/* Header */}
           <div className="bg-gradient-to-r from-primary-500 to-accent-500 text-white p-4 rounded-t-2xl">
-            <h3 className="font-semibold">Chat with Marie's Team</h3>
+            <h3 className="font-semibold">{t('getInvolved.contact')}</h3>
             <p className="text-sm opacity-90">We're here to help!</p>
           </div>
 
-          {/* Messages */}
           <div className="p-4 h-64 overflow-y-auto">
             <div className="mb-4">
               <div className="bg-gray-100 rounded-lg p-3 max-w-xs">
@@ -48,7 +45,6 @@ export default function ChatWidget() {
             </div>
           </div>
 
-          {/* Input */}
           <div className="p-4 border-t">
             <div className="flex space-x-2">
               <input

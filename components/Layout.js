@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import { Menu, X, Globe, ChevronDown } from 'lucide-react';
 import ChatWidget from './ChatWidget';
@@ -9,8 +8,14 @@ export default function Layout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [langDropdown, setLangDropdown] = useState(false);
-  const { t } = useTranslation();
-  const router = useRouter();
+  const { t, i18n } = useTranslation();
+  const [currentLang, setCurrentLang] = useState('fr');
+
+  useEffect(() => {
+    const savedLang = localStorage.getItem('language') || 'fr';
+    setCurrentLang(savedLang);
+    i18n.changeLanguage(savedLang);
+  }, [i18n]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,16 +34,15 @@ export default function Layout({ children }) {
     { name: t('nav.getInvolved'), href: '/get-involved' },
   ];
 
-  const switchLanguage = () => {
-    const currentLang = localStorage.getItem('language') || 'fr';
-    const newLang = currentLang === 'en' ? 'fr' : 'en';
-    localStorage.setItem('language', newLang);
-    window.location.reload();
+  const switchLanguage = (lang) => {
+    setCurrentLang(lang);
+    localStorage.setItem('language', lang);
+    i18n.changeLanguage(lang);
+    setLangDropdown(false);
   };
 
   return (
     <div className="min-h-screen">
-      {/* Navigation */}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled 
           ? 'bg-white/90 backdrop-blur-md shadow-lg' 
@@ -46,12 +50,10 @@ export default function Layout({ children }) {
       }`}>
         <div className="container-custom">
           <div className="flex justify-between items-center h-20">
-            {/* Logo */}
             <Link href="/" className="text-2xl font-serif font-bold text-gradient hover:scale-105 transition-transform">
               Marie Mwape Kashimbo
             </Link>
 
-            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
               {navigation.map((item) => (
                 <Link
@@ -63,34 +65,27 @@ export default function Layout({ children }) {
                 </Link>
               ))}
               
-              {/* Language Switcher */}
               <div className="relative">
                 <button
                   onClick={() => setLangDropdown(!langDropdown)}
                   className="flex items-center space-x-2 nav-link"
                 >
                   <Globe size={18} />
-                  <span>EN/FR</span>
+                  <span>{currentLang.toUpperCase()}</span>
                   <ChevronDown size={16} />
                 </button>
                 
                 {langDropdown && (
                   <div className="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 py-2 min-w-[120px]">
                     <button
-                      onClick={() => {
-                        switchLanguage();
-                        setLangDropdown(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 hover:bg-gray-50 transition-colors"
+                      onClick={() => switchLanguage('en')}
+                      className={`block w-full text-left px-4 py-2 hover:bg-gray-50 transition-colors ${currentLang === 'en' ? 'bg-primary-50 text-primary-600' : ''}`}
                     >
                       English
                     </button>
                     <button
-                      onClick={() => {
-                        switchLanguage();
-                        setLangDropdown(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 hover:bg-gray-50 transition-colors"
+                      onClick={() => switchLanguage('fr')}
+                      className={`block w-full text-left px-4 py-2 hover:bg-gray-50 transition-colors ${currentLang === 'fr' ? 'bg-primary-50 text-primary-600' : ''}`}
                     >
                       Français
                     </button>
@@ -99,13 +94,28 @@ export default function Layout({ children }) {
               </div>
             </div>
 
-            {/* Mobile Menu Button */}
             <div className="lg:hidden flex items-center space-x-4">
               <button
-                onClick={switchLanguage}
-                className="p-2 text-gray-700 hover:text-primary-600 transition-colors"
+                onClick={() => setLangDropdown(!langDropdown)}
+                className="p-2 text-gray-700 hover:text-primary-600 transition-colors relative"
               >
                 <Globe size={20} />
+                {langDropdown && (
+                  <div className="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 py-2 min-w-[120px]">
+                    <button
+                      onClick={() => switchLanguage('en')}
+                      className={`block w-full text-left px-4 py-2 hover:bg-gray-50 transition-colors ${currentLang === 'en' ? 'bg-primary-50 text-primary-600' : ''}`}
+                    >
+                      English
+                    </button>
+                    <button
+                      onClick={() => switchLanguage('fr')}
+                      className={`block w-full text-left px-4 py-2 hover:bg-gray-50 transition-colors ${currentLang === 'fr' ? 'bg-primary-50 text-primary-600' : ''}`}
+                    >
+                      Français
+                    </button>
+                  </div>
+                )}
               </button>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -117,7 +127,6 @@ export default function Layout({ children }) {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
             <div className="container-custom py-4">
@@ -136,16 +145,13 @@ export default function Layout({ children }) {
         )}
       </nav>
 
-      {/* Main Content */}
       <main className="pt-20">
         {children}
       </main>
 
-      {/* Footer */}
       <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white">
         <div className="container-custom section-padding">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Brand */}
             <div className="md:col-span-2">
               <h3 className="text-2xl font-serif font-bold mb-4 text-gradient">
                 Marie Mwape Kashimbo
@@ -166,9 +172,8 @@ export default function Layout({ children }) {
               </div>
             </div>
 
-            {/* Quick Links */}
             <div>
-              <h4 className="font-semibold mb-4">Quick Links</h4>
+              <h4 className="font-semibold mb-4">{t('nav.home')}</h4>
               <ul className="space-y-2">
                 {navigation.slice(0, 4).map((item) => (
                   <li key={item.name}>
@@ -180,9 +185,8 @@ export default function Layout({ children }) {
               </ul>
             </div>
 
-            {/* Contact */}
             <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
+              <h4 className="font-semibold mb-4">{t('getInvolved.contact')}</h4>
               <div className="space-y-2 text-gray-300">
                 <p>Kisangani, DRC</p>
                 <p>contact@mariemwape.org</p>
@@ -197,7 +201,6 @@ export default function Layout({ children }) {
         </div>
       </footer>
 
-      {/* Chat Widget */}
       <ChatWidget />
     </div>
   );
