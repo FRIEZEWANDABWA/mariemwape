@@ -7,7 +7,8 @@ export default function AIChat() {
   const [hasAutoOpened, setHasAutoOpened] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const { t } = useTranslation();
+  const [isLoading, setIsLoading] = useState(false);
+  const { t, i18n } = useTranslation();
 
   // Auto-open chat after 5 seconds on first visit
   useEffect(() => {
@@ -40,30 +41,85 @@ export default function AIChat() {
     }
   }, [t]);
 
-  const handleSend = () => {
+  const sendToChatbase = async (message) => {
+    try {
+      const response = await fetch('https://www.chatbase.co/api/v1/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer NiGv2avnF7dALhzD9xnfg'
+        },
+        body: JSON.stringify({
+          message: message,
+          chatbotId: 'NiGv2avnF7dALhzD9xnfg',
+          stream: false
+        })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        return data.text || data.message;
+      }
+    } catch (error) {
+      console.error('Chatbase API error:', error);
+    }
+    return null;
+  };
+
+  const getFallbackResponse = (lowerInput) => {
+    if (lowerInput.includes('foundation') || lowerInput.includes('fmmps') || lowerInput.includes('fondation')) {
+      return t('chat.responses.foundation');
+    } else if (lowerInput.includes('political') || lowerInput.includes('nogec') || lowerInput.includes('politique')) {
+      return t('chat.responses.political');
+    } else if (lowerInput.includes('volunteer') || lowerInput.includes('help') || lowerInput.includes('involved') || lowerInput.includes('bénévol') || lowerInput.includes('aide') || lowerInput.includes('impliqu')) {
+      return t('chat.responses.volunteer');
+    } else if (lowerInput.includes('about') || lowerInput.includes('marie') || lowerInput.includes('who') || lowerInput.includes('propos') || lowerInput.includes('qui')) {
+      return t('chat.responses.about');
+    } else if (lowerInput.includes('contact') || lowerInput.includes('reach') || lowerInput.includes('contacter')) {
+      return t('chat.responses.contact');
+    }
+    return t('chat.responses.default');
+  };
+
+  const handleSend = async () => {
     if (!input.trim()) return;
 
     const userMessage = { type: 'user', text: input };
     setMessages(prev => [...prev, userMessage]);
+    setIsLoading(true);
 
-    // Simple keyword matching for responses
-    const lowerInput = input.toLowerCase();
-    let response = t('chat.responses.default');
+    // Try Chatbase first
+    let response = await sendToChatbase(input);
+    
+    // If Chatbase fails, use fallback responses
+    if (!response) {
+      const lowerInput = input.toLowerCase();
+      response = getFallbackResponse(lowerInput);
+    }
 
-    if (lowerInput.includes('foundation') || lowerInput.includes('fmmps') || lowerInput.includes('fondation')) {
-      response = t('chat.responses.foundation');
-    } else if (lowerInput.includes('political') || lowerInput.includes('nogec') || lowerInput.includes('politique')) {
-      response = t('chat.responses.political');
-    } else if (lowerInput.includes('volunteer') || lowerInput.includes('help') || lowerInput.includes('involved') || lowerInput.includes('bénévol') || lowerInput.includes('aide') || lowerInput.includes('impliqu')) {
-      response = t('chat.responses.volunteer');
-    } else if (lowerInput.includes('about') || lowerInput.includes('marie') || lowerInput.includes('who') || lowerInput.includes('propos') || lowerInput.includes('qui')) {
-      response = t('chat.responses.about');
-    } else if (lowerInput.includes('contact') || lowerInput.includes('reach') || lowerInput.includes('contacter')) {
-      response = t('chat.responses.contact');
+    // Translate response if needed (basic translation for common responses)
+    if (i18n.language === 'fr' && response) {
+      // Simple translation mapping for common English responses
+      const translations = {
+        'Hello': 'Bonjour',
+        'Hi': 'Salut',
+        'Thank you': 'Merci',
+        'You\'re welcome': 'De rien',
+        'How can I help': 'Comment puis-je vous aider',
+        'FMMPS Foundation': 'Fondation FMMPS',
+        'Marie Mwape': 'Marie Mwape',
+        'volunteer': 'bénévole',
+        'contact': 'contacter'
+      };
+      
+      Object.keys(translations).forEach(en => {
+        response = response.replace(new RegExp(en, 'gi'), translations[en]);
+      });
     }
 
     setTimeout(() => {
       setMessages(prev => [...prev, { type: 'bot', text: response }]);
+      setIsLoading(false);
     }, 1000);
 
     setInput('');
@@ -115,6 +171,17 @@ export default function AIChat() {
                 </div>
               </div>
             ))}
+            {isLoading && (
+              <div className="text-left mb-4">
+                <div className="inline-block p-3 rounded-lg max-w-xs bg-gray-100 dark:bg-gray-700">
+                  <div className="flex space-x-1">
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="p-4 border-t dark:border-gray-700">
@@ -125,11 +192,13 @@ export default function AIChat() {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder={t('chat.placeholder')}
                 className="flex-1 border border-gray-300 dark:border-gray-600 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-700 dark:text-white"
-                onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+                onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSend()}
+                disabled={isLoading}
               />
               <button
                 onClick={handleSend}
-                className="bg-primary-500 text-white p-2 rounded-full hover:bg-primary-600 transition-colors"
+                disabled={isLoading}
+                className="bg-primary-500 text-white p-2 rounded-full hover:bg-primary-600 transition-colors disabled:opacity-50"
                 aria-label="Send message"
               >
                 <Send size={16} />
@@ -138,6 +207,13 @@ export default function AIChat() {
           </div>
         </div>
       )}
+
+      {/* Hidden iframe for Chatbase integration */}
+      <iframe
+        src="https://www.chatbase.co/chatbot-iframe/NiGv2avnF7dALhzD9xnfg"
+        style={{ display: 'none' }}
+        title="Chatbase Integration"
+      />
     </>
   );
 }
