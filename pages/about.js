@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import { Calendar, Award, Users, Heart, Target, Zap } from 'lucide-react';
 
@@ -11,28 +12,32 @@ export default function About() {
       title: 'Founded FMMPS Foundation',
       description: 'Established the foundation to support vulnerable populations in DRC',
       icon: Heart,
-      color: 'from-red-400 to-pink-500'
+      color: 'from-red-400 to-pink-500',
+      image: '/images/foundation.jpg'
     },
     {
       year: '2022',
       title: 'Actu Stars Awards Nomination',
       description: 'Recognized for outstanding community service and impact',
       icon: Award,
-      color: 'from-yellow-400 to-orange-500'
+      color: 'from-yellow-400 to-orange-500',
+      image: '/images/annie-spratt-wtk4VH8EU20-unsplash.jpg'
     },
     {
       year: '2023',
       title: 'Third Anniversary Milestone',
       description: 'Celebrated three years of transformative community work',
       icon: Calendar,
-      color: 'from-blue-400 to-indigo-500'
+      color: 'from-blue-400 to-indigo-500',
+      image: '/images/foundation2.jpg'
     },
     {
       year: '2025',
       title: 'Joined NOGEC',
       description: 'Entered formal politics to amplify advocacy efforts',
       icon: Target,
-      color: 'from-purple-400 to-pink-500'
+      color: 'from-purple-400 to-pink-500',
+      image: '/images/political.jpg'
     }
   ];
 
@@ -41,19 +46,22 @@ export default function About() {
       icon: Heart,
       title: 'Compassion',
       description: 'Deep empathy drives every action we take for our community',
-      gradient: 'from-red-400 to-pink-500'
+      gradient: 'from-red-400 to-pink-500',
+      image: '/images/annie-spratt-WwSX_X4GrAA-unsplash.jpg'
     },
     {
       icon: Users,
       title: 'Community',
       description: 'Building stronger bonds through collective action and support',
-      gradient: 'from-blue-400 to-indigo-500'
+      gradient: 'from-blue-400 to-indigo-500',
+      image: '/images/doug-linstedt-jEEYZsaxbH4-unsplash.jpg'
     },
     {
       icon: Zap,
       title: 'Impact',
       description: 'Creating measurable, lasting change in people\'s lives',
-      gradient: 'from-yellow-400 to-orange-500'
+      gradient: 'from-yellow-400 to-orange-500',
+      image: '/images/madalena-veloso-zeNeAUwoJvs-unsplash.jpg'
     }
   ];
 
@@ -82,14 +90,13 @@ export default function About() {
             <div className="animate-slide-up">
               <div className="relative">
                 <div className="w-full h-96 bg-gradient-to-br from-primary-200 via-accent-200 to-secondary-200 rounded-3xl shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-500"></div>
-                <div className="absolute inset-4 bg-white rounded-2xl flex items-center justify-center shadow-xl">
-                  <div className="text-center p-8">
-                    <div className="w-32 h-32 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full mx-auto mb-6 flex items-center justify-center">
-                      <Heart className="text-white" size={60} />
-                    </div>
-                    <p className="text-gray-600 font-medium text-lg">Marie Mwape Kashimbo</p>
-                    <p className="text-sm text-gray-500">Professional Portrait</p>
-                  </div>
+                <div className="absolute inset-4 bg-white rounded-2xl overflow-hidden shadow-xl">
+                  <Image
+                    src="/images/profile.jpg"
+                    alt="Marie Mwape Kashimbo Professional Portrait"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
             </div>
@@ -123,6 +130,15 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((value, index) => (
               <div key={index} className="card group animate-slide-up" style={{animationDelay: `${index * 0.1}s`}}>
+                <div className="relative h-48 mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src={value.image}
+                    alt={value.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-r ${value.gradient} opacity-30`}></div>
+                </div>
                 <div className={`w-20 h-20 bg-gradient-to-r ${value.gradient} rounded-3xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                   <value.icon className="text-white" size={36} />
                 </div>
@@ -139,7 +155,7 @@ export default function About() {
       </section>
 
       {/* Timeline Section */}
-      <section className="section-padding bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="section-padding bg-gradient-to-br from-gray-50 to-secondary-50">
         <div className="container-custom">
           <div className="text-center mb-16 animate-slide-up">
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-gradient">
@@ -151,7 +167,6 @@ export default function About() {
           </div>
 
           <div className="relative">
-            {/* Timeline Line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary-500 to-accent-500 rounded-full"></div>
 
             <div className="space-y-16">
@@ -159,6 +174,15 @@ export default function About() {
                 <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} animate-slide-up`} style={{animationDelay: `${index * 0.2}s`}}>
                   <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
                     <div className="card">
+                      <div className="relative h-32 mb-4 rounded-lg overflow-hidden">
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          className="object-cover"
+                        />
+                        <div className={`absolute inset-0 bg-gradient-to-r ${item.color} opacity-20`}></div>
+                      </div>
                       <div className="flex items-center mb-4">
                         <div className={`w-12 h-12 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center mr-4`}>
                           <item.icon className="text-white" size={24} />
@@ -174,7 +198,6 @@ export default function About() {
                     </div>
                   </div>
                   
-                  {/* Timeline Node */}
                   <div className="relative z-10">
                     <div className={`w-6 h-6 bg-gradient-to-r ${item.color} rounded-full border-4 border-white shadow-lg`}></div>
                   </div>
@@ -182,6 +205,47 @@ export default function About() {
                   <div className="w-1/2"></div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Personal Gallery */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="text-center mb-16 animate-slide-up">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-gradient">
+              Personal Moments
+            </h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Behind the scenes with Marie Mwape Kashimbo
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="relative h-64 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow animate-slide-up">
+              <Image
+                src="/images/profile 2.jpg"
+                alt="Marie Mwape Profile"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-64 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow animate-slide-up" style={{animationDelay: '0.1s'}}>
+              <Image
+                src="/images/prof pic 3.jpg"
+                alt="Marie Mwape Professional"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-64 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow animate-slide-up" style={{animationDelay: '0.2s'}}>
+              <Image
+                src="/images/political1.jpg"
+                alt="Political Engagement"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+              />
             </div>
           </div>
         </div>

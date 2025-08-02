@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Heart, Users, Globe, Star, Award, Zap } from 'lucide-react';
 
@@ -18,19 +19,22 @@ export default function Home() {
       icon: Heart,
       title: 'Compassionate Leadership',
       description: 'Leading with empathy and understanding for those facing challenges.',
-      gradient: 'from-red-400 to-pink-500'
+      gradient: 'from-red-400 to-pink-500',
+      image: '/images/annie-spratt-cVEOh_JJmEE-unsplash.jpg'
     },
     {
       icon: Users,
       title: 'Community Building',
       description: 'Strengthening communities through collective action and support.',
-      gradient: 'from-blue-400 to-indigo-500'
+      gradient: 'from-blue-400 to-indigo-500',
+      image: '/images/seth-doyle-zf9_yiAekJs-unsplash.jpg'
     },
     {
       icon: Zap,
       title: 'Transformative Change',
       description: 'Creating lasting impact through dedicated advocacy and action.',
-      gradient: 'from-yellow-400 to-orange-500'
+      gradient: 'from-yellow-400 to-orange-500',
+      image: '/images/bill-wegener-7MD4DR9jbP0-unsplash.jpg'
     }
   ];
 
@@ -44,10 +48,8 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center hero-gradient overflow-hidden">
-        {/* Background Pattern */}
         <div className="absolute inset-0 bg-hero-pattern opacity-20"></div>
         
-        {/* Floating Elements */}
         <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-accent-400 to-secondary-400 rounded-full opacity-20 floating-element"></div>
         <div className="absolute top-40 right-20 w-16 h-16 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full opacity-30 floating-element" style={{animationDelay: '2s'}}></div>
         <div className="absolute bottom-40 left-20 w-12 h-12 bg-gradient-to-r from-secondary-400 to-primary-400 rounded-full opacity-25 floating-element" style={{animationDelay: '4s'}}></div>
@@ -78,14 +80,14 @@ export default function Home() {
             <div className="relative animate-fade-in" style={{animationDelay: '0.3s'}}>
               <div className="relative">
                 <div className="w-full h-96 bg-gradient-to-br from-primary-200 via-accent-200 to-secondary-200 rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500"></div>
-                <div className="absolute inset-4 bg-white rounded-2xl flex items-center justify-center shadow-xl">
-                  <div className="text-center">
-                    <div className="w-24 h-24 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <Heart className="text-white" size={40} />
-                    </div>
-                    <p className="text-gray-600 font-medium">Marie Mwape Kashimbo</p>
-                    <p className="text-sm text-gray-500">Portrait Placeholder</p>
-                  </div>
+                <div className="absolute inset-4 bg-white rounded-2xl overflow-hidden shadow-xl">
+                  <Image
+                    src="/images/main prof pic.jpg"
+                    alt="Marie Mwape Kashimbo"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                 </div>
               </div>
             </div>
@@ -111,7 +113,7 @@ export default function Home() {
       </section>
 
       {/* Mission Section */}
-      <section className="section-padding bg-gradient-to-br from-orange-50 via-white to-blue-50">
+      <section className="section-padding bg-gradient-to-br from-secondary-50 via-white to-secondary-100">
         <div className="container-custom">
           <div className="text-center mb-16 animate-slide-up">
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-gradient">
@@ -125,6 +127,15 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <div key={index} className="card group animate-slide-up" style={{animationDelay: `${index * 0.2}s`}}>
+                <div className="relative h-48 mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src={feature.image}
+                    alt={feature.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-r ${feature.gradient} opacity-20`}></div>
+                </div>
                 <div className={`w-16 h-16 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                   <feature.icon className="text-white" size={32} />
                 </div>
@@ -140,9 +151,66 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Gallery Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="text-center mb-16 animate-slide-up">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-gradient">
+              Our Impact in Action
+            </h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Witness the transformation happening in communities across the Democratic Republic of Congo
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="relative h-64 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow animate-slide-up">
+              <Image
+                src="/images/kisangani.jpg"
+                alt="Kisangani Community"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="font-semibold">Kisangani Community</h3>
+                <p className="text-sm opacity-90">Our home base</p>
+              </div>
+            </div>
+
+            <div className="relative h-64 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow animate-slide-up" style={{animationDelay: '0.1s'}}>
+              <Image
+                src="/images/annie-spratt-AlMuWOQZBBs-unsplash.jpg"
+                alt="Community Outreach"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="font-semibold">Community Outreach</h3>
+                <p className="text-sm opacity-90">Reaching every corner</p>
+              </div>
+            </div>
+
+            <div className="relative h-64 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow animate-slide-up" style={{animationDelay: '0.2s'}}>
+              <Image
+                src="/images/toby-wong-qJPKwiAmaBc-unsplash.jpg"
+                alt="Youth Empowerment"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="font-semibold">Youth Empowerment</h3>
+                <p className="text-sm opacity-90">Building tomorrow's leaders</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action */}
       <section className="section-padding bg-gradient-to-r from-primary-600 via-accent-600 to-secondary-600 text-white relative overflow-hidden">
-        {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full"></div>
           <div className="absolute bottom-10 right-10 w-24 h-24 bg-white/10 rounded-full"></div>
@@ -182,7 +250,14 @@ export default function Home() {
               "Marie's dedication to our community has been transformational. Through her foundation, she has brought hope and tangible change to countless families."
             </blockquote>
             <div className="flex items-center justify-center space-x-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full"></div>
+              <div className="relative w-12 h-12 rounded-full overflow-hidden">
+                <Image
+                  src="/images/eva-blue-SfPOkp6-2eA-unsplash.jpg"
+                  alt="Community Leader"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div className="text-left">
                 <p className="font-semibold text-gray-800">Community Leader</p>
                 <p className="text-gray-600">Kisangani, DRC</p>
