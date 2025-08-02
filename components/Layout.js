@@ -72,23 +72,23 @@ export default function Layout({ children }) {
                   className="flex items-center space-x-2 text-dark-900 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
                 >
                   <Globe size={18} />
-                  <span>{currentLang.toUpperCase()}</span>
+                  <span>{currentLang === 'fr' ? 'FR' : 'EN'}</span>
                   <ChevronDown size={16} />
                 </button>
                 
                 {langDropdown && (
                   <div className="absolute top-full right-0 mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 py-2 min-w-[120px]">
                     <button
-                      onClick={() => switchLanguage('en')}
-                      className={`block w-full text-left px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${currentLang === 'en' ? 'bg-primary-50 dark:bg-primary-900 text-primary-600 dark:text-primary-400' : 'text-gray-700 dark:text-gray-300'}`}
-                    >
-                      English
-                    </button>
-                    <button
                       onClick={() => switchLanguage('fr')}
                       className={`block w-full text-left px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${currentLang === 'fr' ? 'bg-primary-50 dark:bg-primary-900 text-primary-600 dark:text-primary-400' : 'text-gray-700 dark:text-gray-300'}`}
                     >
                       Français
+                    </button>
+                    <button
+                      onClick={() => switchLanguage('en')}
+                      className={`block w-full text-left px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${currentLang === 'en' ? 'bg-primary-50 dark:bg-primary-900 text-primary-600 dark:text-primary-400' : 'text-gray-700 dark:text-gray-300'}`}
+                    >
+                      English
                     </button>
                   </div>
                 )}
@@ -107,16 +107,16 @@ export default function Layout({ children }) {
                 {langDropdown && (
                   <div className="absolute top-full right-0 mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 py-2 min-w-[120px]">
                     <button
-                      onClick={() => switchLanguage('en')}
-                      className={`block w-full text-left px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${currentLang === 'en' ? 'bg-primary-50 dark:bg-primary-900 text-primary-600 dark:text-primary-400' : 'text-gray-700 dark:text-gray-300'}`}
-                    >
-                      English
-                    </button>
-                    <button
                       onClick={() => switchLanguage('fr')}
                       className={`block w-full text-left px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${currentLang === 'fr' ? 'bg-primary-50 dark:bg-primary-900 text-primary-600 dark:text-primary-400' : 'text-gray-700 dark:text-gray-300'}`}
                     >
                       Français
+                    </button>
+                    <button
+                      onClick={() => switchLanguage('en')}
+                      className={`block w-full text-left px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${currentLang === 'en' ? 'bg-primary-50 dark:bg-primary-900 text-primary-600 dark:text-primary-400' : 'text-gray-700 dark:text-gray-300'}`}
+                    >
+                      English
                     </button>
                   </div>
                 )}
@@ -177,7 +177,7 @@ export default function Layout({ children }) {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-primary-400">Quick Links</h4>
+              <h4 className="font-semibold mb-4 text-primary-400">{t('footer.quickLinks')}</h4>
               <ul className="space-y-2">
                 {navigation.slice(0, 4).map((item) => (
                   <li key={item.name}>
@@ -192,7 +192,7 @@ export default function Layout({ children }) {
             <div>
               <h4 className="font-semibold mb-4 text-primary-400">{t('getInvolved.contact')}</h4>
               <div className="space-y-2 text-gray-300">
-                <p>Kisangani, DRC</p>
+                <p>Kisangani, RDC</p>
                 <p>contact@mariemwape.org</p>
                 <p>+243 XXX XXX XXX</p>
               </div>

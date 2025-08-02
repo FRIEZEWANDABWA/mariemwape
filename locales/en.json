@@ -9,11 +9,24 @@
   },
   "home": {
     "title": "Marie Mwape Kashimbo",
+    "heroTitle": "Marie Mwape Kashimbo • Advocate for Social Progress & Community Empowerment",
+    "heroSubtitle": "Founder of FMMPS | Champion of Vulnerable Communities in Kisangani & Tshopo",
     "subtitle": "Driven by Compassion, Committed to Change",
     "heroText": "Congolese philanthropist, founder of the FMMPS Foundation, and emerging political figure dedicated to transforming lives in the Democratic Republic of Congo.",
     "learnMore": "Learn More",
     "mission": "Mission",
-    "missionText": "To create lasting change through compassionate action, supporting the most vulnerable in our society while advocating for better governance and social justice."
+    "missionText": "To create lasting change through compassionate action, supporting the most vulnerable in our society while advocating for better governance and social justice.",
+    "aboutMamanBolingo": "About \"Maman Bolingo\"",
+    "aboutText": "Marie Mwape Kashimbo • fondly known as \"Maman Bolingo\" • is a Congolese philanthropist, community leader, and emerging political figure. Since founding the FMMPS in 2021, she has led transformative efforts for vulnerable communities across Tshopo province.",
+    "aboutText2": "Her unwavering dedication to social justice and human dignity has made her a beacon of hope for thousands of people, earning her recognition as one of the most influential community leaders in the Democratic Republic of Congo.",
+    "keyAchievements": "Key Achievements",
+    "achievementsSubtitle": "Milestones that mark our journey of impact and transformation",
+    "foundationImpact": "FMMPS Foundation Impact",
+    "foundationSubtitle": "Three pillars of transformation in our communities",
+    "joinMovement": "Join the Movement",
+    "joinText": "Together, we can create meaningful change and build a better future for all Congolese people. Your support makes the difference.",
+    "downloadPdf": "Download Vision & Purpose PDF",
+    "joinCause": "Join the Cause / Volunteer"
   },
   "about": {
     "title": "About Marie Mwape Kashimbo",
@@ -22,7 +35,15 @@
     "values": "Values & Mission",
     "valuesText": "Guided by principles of compassion, integrity, and social responsibility, Marie believes in the power of collective action to create meaningful change. Her work spans across multiple sectors including healthcare, education, and social welfare.",
     "journey": "Her Journey",
-    "journeyText": "From her early days as a community organizer to founding the FMMPS Foundation and entering the political arena, Marie's journey reflects her deep commitment to serving others and building a better future for all Congolese people."
+    "journeyText": "From her early days as a community organizer to founding the FMMPS Foundation and entering the political arena, Marie's journey reflects her deep commitment to serving others and building a better future for all Congolese people.",
+    "coreValues": "Core Values",
+    "coreValuesSubtitle": "The principles that guide every decision and action in our mission",
+    "journeyTimeline": "Journey Timeline",
+    "timelineSubtitle": "Key milestones in Marie's path of service and leadership",
+    "personalMoments": "Personal Moments",
+    "personalSubtitle": "Behind the scenes with Marie Mwape Kashimbo",
+    "keyAchievements": "Key Achievements",
+    "achievementsSubtitle": "Milestones that mark our journey of impact and transformation"
   },
   "foundation": {
     "title": "FMMPS Foundation",
@@ -30,7 +51,11 @@
     "overview": "The FMMPS Foundation, founded by Marie Mwape Kashimbo, is dedicated to supporting the most vulnerable members of society including orphans, people with disabilities, albinos, and those facing mental health challenges.",
     "projects": "Our Projects",
     "impact": "Impact Stories",
-    "impactText": "Through direct intervention and community support programs, the Foundation has touched thousands of lives, providing essential services, healthcare, and hope to those who need it most."
+    "impactText": "Through direct intervention and community support programs, the Foundation has touched thousands of lives, providing essential services, healthcare, and hope to those who need it most.",
+    "impactSubtitle": "Our comprehensive approach to supporting vulnerable populations",
+    "foundationGallery": "Foundation Gallery",
+    "gallerySubtitle": "Moments that capture the heart of our mission",
+    "thirdAnniversary": "Third Anniversary Celebration"
   },
   "political": {
     "title": "Political Journey",
@@ -40,14 +65,16 @@
     "advocacy": "Advocacy Work",
     "advocacyText": "Her political platform focuses on social welfare, healthcare reform, education access, and creating policies that protect the most vulnerable populations in Congolese society.",
     "goals": "Policy Goals",
-    "goalsText": "Working towards comprehensive social reform, improved healthcare systems, and governance structures that prioritize human dignity and social justice."
+    "goalsText": "Working towards comprehensive social reform, improved healthcare systems, and governance structures that prioritize human dignity and social justice.",
+    "fromPhilanthropy": "\"From Philanthropy to Politics\""
   },
   "media": {
     "title": "Media & News",
     "subtitle": "Coverage and Recognition",
     "articles": "Recent Articles",
     "recognition": "Awards & Recognition",
-    "recognitionText": "Marie's work has been recognized through various awards and media coverage, highlighting her significant contributions to Congolese society."
+    "recognitionText": "Marie's work has been recognized through various awards and media coverage, highlighting her significant contributions to Congolese society.",
+    "mediaHighlights": "Media Highlights"
   },
   "getInvolved": {
     "title": "Get Involved",
@@ -62,10 +89,58 @@
     "email": "Email",
     "message": "Message",
     "send": "Send Message",
-    "donateNow": "Donate Now"
+    "donateNow": "Donate Now",
+    "joinCommunity": "Join Our Community"
   },
   "footer": {
     "copyright": "© 2024 Marie Mwape Kashimbo. All rights reserved.",
-    "mission": "Driven by compassion, committed to change."
+    "mission": "Driven by compassion, committed to change.",
+    "quickLinks": "Quick Links"
+  },
+  "achievements": {
+    "foundedFmmps": "Founded FMMPS",
+    "foundedDescription": "Established the foundation to support vulnerable populations",
+    "actuStars": "Actu Stars Awards Nomination",
+    "actuDescription": "Recognized for outstanding community service",
+    "joinedNogec": "Joined NOGEC",
+    "nogecDescription": "Entered formal politics to amplify advocacy efforts",
+    "aidPrograms": "Aid Programs",
+    "aidDescription": "Leading numerous programs in Kisangani and Lubunga"
+  },
+  "pillars": {
+    "foodDistribution": "Food & Essentials Distribution",
+    "foodDescription": "Providing basic necessities to families in need across Tshopo province.",
+    "infrastructureAdvocacy": "Infrastructure Advocacy",
+    "infrastructureDescription": "Advocating for better infrastructure and public services in communities.",
+    "communityEvents": "Community Events",
+    "eventsDescription": "Organizing events that bring communities together and foster unity."
+  },
+  "chat": {
+    "greeting": "Hello 👋 I'm Marie Mwape's assistant. How may I assist you today?",
+    "placeholder": "Ask about Marie's work...",
+    "title": "Marie's Assistant",
+    "subtitle": "Ask me anything!",
+    "responses": {
+      "foundation": "The FMMPS Foundation, founded in 2021, focuses on three main pillars: Food & Essentials Distribution, Infrastructure Advocacy, and Community Events. Marie has helped over 1000+ people across Tshopo province.",
+      "political": "Marie joined NOGEC (National Organization for Good Governance and Change) in July 2025 to amplify her advocacy work through formal politics, focusing on social welfare and healthcare reform.",
+      "volunteer": "You can get involved by visiting our \"Get Involved\" section where you can volunteer, donate, or contact us directly. We always need passionate people to help our cause!",
+      "about": "Marie Mwape Kashimbo, known as \"Maman Bolingo,\" is a Congolese philanthropist and community leader who has dedicated her life to supporting vulnerable populations in DRC.",
+      "contact": "You can reach Marie through our contact form, email at contact@mariemwape.org, or through our social media channels. We'd love to hear from you!",
+      "default": "Thank you for your question! For more detailed information, please visit the relevant sections of our website or contact us directly."
+    }
+  },
+  "stats": {
+    "livesImpacted": "Lives Impacted",
+    "childrenSupported": "Children Supported",
+    "communitiesReached": "Communities Reached",
+    "yearsOfService": "Years of Service"
+  },
+  "values": {
+    "compassion": "Compassion",
+    "compassionDesc": "Deep empathy drives every action we take for our community",
+    "community": "Community",
+    "communityDesc": "Building stronger bonds through collective action and support",
+    "impact": "Impact",
+    "impactDesc": "Creating measurable, lasting change in people's lives"
   }
 }

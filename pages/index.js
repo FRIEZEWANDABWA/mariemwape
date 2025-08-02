@@ -8,38 +8,38 @@ export default function Home() {
   const { t } = useTranslation();
 
   const stats = [
-    { icon: Users, number: '1000+', label: 'Lives Impacted' },
-    { icon: Heart, number: '500+', label: 'Children Supported' },
-    { icon: Globe, number: '15+', label: 'Communities Reached' },
-    { icon: Award, number: '3+', label: 'Years of Service' },
+    { icon: Users, number: '1000+', label: t('stats.livesImpacted') },
+    { icon: Heart, number: '500+', label: t('stats.childrenSupported') },
+    { icon: Globe, number: '15+', label: t('stats.communitiesReached') },
+    { icon: Award, number: '3+', label: t('stats.yearsOfService') },
   ];
 
   const achievements = [
     {
       year: '2021',
-      title: 'Founded FMMPS',
-      description: 'Established the foundation to support vulnerable populations',
+      title: t('achievements.foundedFmmps'),
+      description: t('achievements.foundedDescription'),
       icon: Building,
       color: 'from-primary-400 to-accent-400'
     },
     {
       year: '2022',
-      title: 'Actu Stars Awards Nomination',
-      description: 'Recognized for outstanding community service',
+      title: t('achievements.actuStars'),
+      description: t('achievements.actuDescription'),
       icon: Trophy,
       color: 'from-accent-400 to-primary-400'
     },
     {
       year: '2025',
-      title: 'Joined NOGEC',
-      description: 'Entered formal politics to amplify advocacy',
+      title: t('achievements.joinedNogec'),
+      description: t('achievements.nogecDescription'),
       icon: Users,
       color: 'from-primary-500 to-accent-500'
     },
     {
-      year: 'Ongoing',
-      title: 'Aid Programs',
-      description: 'Leading numerous programs in Kisangani and Lubunga',
+      year: 'En cours',
+      title: t('achievements.aidPrograms'),
+      description: t('achievements.aidDescription'),
       icon: Heart,
       color: 'from-accent-500 to-primary-500'
     }
@@ -48,20 +48,20 @@ export default function Home() {
   const foundationPillars = [
     {
       icon: Heart,
-      title: 'Food & Essentials Distribution',
-      description: 'Providing basic necessities to families in need across Tshopo province.',
+      title: t('pillars.foodDistribution'),
+      description: t('pillars.foodDescription'),
       image: '/images/annie-spratt-cVEOh_JJmEE-unsplash.jpg'
     },
     {
       icon: Building,
-      title: 'Infrastructure Advocacy',
-      description: 'Advocating for better infrastructure and public services in communities.',
+      title: t('pillars.infrastructureAdvocacy'),
+      description: t('pillars.infrastructureDescription'),
       image: '/images/bill-wegener-7MD4DR9jbP0-unsplash.jpg'
     },
     {
       icon: Users,
-      title: 'Community Events',
-      description: 'Organizing events that bring communities together and foster unity.',
+      title: t('pillars.communityEvents'),
+      description: t('pillars.eventsDescription'),
       image: '/images/seth-doyle-zf9_yiAekJs-unsplash.jpg'
     }
   ];
@@ -69,11 +69,11 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Marie Mwape Kashimbo – Philanthropist & Community Leader | FMMPS</title>
-        <meta name="description" content="Discover Marie Mwape's mission to empower communities across Congo through her foundation FMMPS—driven by compassion and action." />
+        <title>Marie Mwape Kashimbo • Philanthrope & Leader Communautaire | FMMPS</title>
+        <meta name="description" content="Découvrez la mission de Marie Mwape d'autonomiser les communautés à travers le Congo par sa fondation FMMPS • animée par la compassion et l'action." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="Marie Mwape Kashimbo – Philanthropist & Community Leader" />
-        <meta property="og:description" content="Discover Marie Mwape's mission to empower communities across Congo through her foundation FMMPS—driven by compassion and action." />
+        <meta property="og:title" content="Marie Mwape Kashimbo • Philanthrope & Leader Communautaire" />
+        <meta property="og:description" content="Découvrez la mission de Marie Mwape d'autonomiser les communautés à travers le Congo par sa fondation FMMPS • animée par la compassion et l'action." />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://mariemwape.netlify.app/" />
       </Head>
@@ -90,10 +90,10 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-up">
               <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6 text-dark-900 dark:text-white">
-                Marie Mwape Kashimbo – <span className="bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">Advocate for Social Progress & Community Empowerment</span>
+                {t('home.heroTitle')}
               </h1>
               <p className="text-xl md:text-2xl font-medium mb-6 text-primary-600 dark:text-primary-400">
-                Founder of FMMPS | Champion of Vulnerable Communities in Kisangani & Tshopo
+                {t('home.heroSubtitle')}
               </p>
               <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                 {t('home.heroText')}
@@ -115,7 +115,7 @@ export default function Home() {
                 <div className="absolute inset-4 bg-white rounded-2xl overflow-hidden shadow-xl">
                   <Image
                     src="/images/main prof pic.jpg"
-                    alt="Marie Mwape Kashimbo - Advocate for Social Progress"
+                    alt="Marie Mwape Kashimbo • Défenseure du Progrès Social"
                     fill
                     className="object-cover"
                     priority
@@ -132,7 +132,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-slide-up">
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
-              About "Maman Bolingo"
+              {t('home.aboutMamanBolingo')}
             </h2>
           </div>
           
@@ -141,7 +141,7 @@ export default function Home() {
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/profile.jpg"
-                  alt="Marie Mwape Kashimbo - Maman Bolingo"
+                  alt="Marie Mwape Kashimbo • Maman Bolingo"
                   fill
                   className="object-cover"
                 />
@@ -150,10 +150,10 @@ export default function Home() {
             
             <div className="animate-slide-up" style={{animationDelay: '0.2s'}}>
               <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-                Marie Mwape Kashimbo—fondly known as <strong className="text-primary-600 dark:text-primary-400">"Maman Bolingo"</strong>—is a Congolese philanthropist, community leader, and emerging political figure. Since founding the FMMPS in 2021, she has led transformative efforts for vulnerable communities across Tshopo province.
+                {t('home.aboutText')}
               </p>
               <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                Her unwavering dedication to social justice and human dignity has made her a beacon of hope for thousands of people, earning her recognition as one of the most influential community leaders in the Democratic Republic of Congo.
+                {t('home.aboutText2')}
               </p>
             </div>
           </div>
@@ -165,10 +165,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-slide-up">
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
-              Key Achievements
+              {t('home.keyAchievements')}
             </h2>
             <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
-              Milestones that mark our journey of impact and transformation
+              {t('home.achievementsSubtitle')}
             </p>
           </div>
 
@@ -198,10 +198,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-slide-up">
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
-              FMMPS Foundation Impact
+              {t('home.foundationImpact')}
             </h2>
             <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
-              Three pillars of transformation in our communities
+              {t('home.foundationSubtitle')}
             </p>
           </div>
 
@@ -258,19 +258,19 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
         <div className="max-w-4xl mx-auto text-center animate-slide-up">
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
-            Join the Movement
+            {t('home.joinMovement')}
           </h2>
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
-            Together, we can create meaningful change and build a better future for all Congolese people. Your support makes the difference.
+            {t('home.joinText')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl inline-flex items-center justify-center">
               <Download className="mr-2" size={20} />
-              Download Vision & Purpose PDF
+              {t('home.downloadPdf')}
             </button>
             <Link href="/get-involved" className="bg-gradient-to-r from-accent-600 to-accent-700 hover:from-accent-700 hover:to-accent-800 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl inline-flex items-center justify-center">
               <UserPlus className="mr-2" size={20} />
-              Join the Cause / Volunteer
+              {t('home.joinCause')}
             </Link>
           </div>
         </div>
@@ -285,20 +285,20 @@ export default function Home() {
             ))}
           </div>
           <blockquote className="text-2xl md:text-3xl font-serif italic text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
-            "Marie's dedication to our community has been transformational. Through her foundation, she has brought hope and tangible change to countless families."
+            "Le dévouement de Marie à notre communauté a été transformateur. Grâce à sa fondation, elle a apporté espoir et changement tangible à d'innombrables familles."
           </blockquote>
           <div className="flex items-center justify-center space-x-4">
             <div className="relative w-12 h-12 rounded-full overflow-hidden">
               <Image
                 src="/images/eva-blue-SfPOkp6-2eA-unsplash.jpg"
-                alt="Community Leader"
+                alt="Leader Communautaire"
                 fill
                 className="object-cover"
               />
             </div>
             <div className="text-left">
-              <p className="font-semibold text-gray-800 dark:text-gray-200">Community Leader</p>
-              <p className="text-gray-600 dark:text-gray-400">Kisangani, DRC</p>
+              <p className="font-semibold text-gray-800 dark:text-gray-200">Leader Communautaire</p>
+              <p className="text-gray-600 dark:text-gray-400">Kisangani, RDC</p>
             </div>
           </div>
         </div>
@@ -313,7 +313,7 @@ export default function Home() {
             "@type": "Person",
             "name": "Marie Mwape Kashimbo",
             "alternateName": "Maman Bolingo",
-            "description": "Congolese philanthropist, community leader, and emerging political figure",
+            "description": "Philanthrope congolaise, leader communautaire et figure politique émergente",
             "url": "https://mariemwape.netlify.app",
             "sameAs": [
               "https://www.facebook.com/mariemwape",
@@ -321,14 +321,14 @@ export default function Home() {
             ],
             "worksFor": {
               "@type": "Organization",
-              "name": "FMMPS Foundation",
+              "name": "Fondation FMMPS",
               "foundingDate": "2021",
-              "description": "Foundation supporting vulnerable communities in Tshopo province, DRC"
+              "description": "Fondation soutenant les communautés vulnérables dans la province de Tshopo, RDC"
             },
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Kisangani",
-              "addressCountry": "Democratic Republic of Congo"
+              "addressCountry": "République Démocratique du Congo"
             }
           })
         }}

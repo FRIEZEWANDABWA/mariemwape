@@ -9,11 +9,24 @@
   },
   "home": {
     "title": "Marie Mwape Kashimbo",
+    "heroTitle": "Marie Mwape Kashimbo • Défenseure du Progrès Social & Autonomisation Communautaire",
+    "heroSubtitle": "Fondatrice de FMMPS | Championne des Communautés Vulnérables à Kisangani & Tshopo",
     "subtitle": "Animée par la compassion, engagée pour le changement",
     "heroText": "Philanthrope congolaise, fondatrice de la Fondation FMMPS, et figure politique émergente dédiée à transformer des vies en République Démocratique du Congo.",
     "learnMore": "En Savoir Plus",
     "mission": "Mission",
-    "missionText": "Créer un changement durable par l'action compassionnelle, en soutenant les plus vulnérables de notre société tout en plaidant pour une meilleure gouvernance et la justice sociale."
+    "missionText": "Créer un changement durable par l'action compassionnelle, en soutenant les plus vulnérables de notre société tout en plaidant pour une meilleure gouvernance et la justice sociale.",
+    "aboutMamanBolingo": "À Propos de « Maman Bolingo »",
+    "aboutText": "Marie Mwape Kashimbo • affectueusement appelée « Maman Bolingo » • est une philanthrope congolaise, leader communautaire et figure politique émergente. Depuis la fondation de FMMPS en 2021, elle a dirigé des efforts transformateurs pour les communautés vulnérables à travers la province de Tshopo.",
+    "aboutText2": "Son dévouement inébranlable à la justice sociale et à la dignité humaine a fait d'elle un phare d'espoir pour des milliers de personnes, lui valant la reconnaissance comme l'une des leaders communautaires les plus influentes de la République Démocratique du Congo.",
+    "keyAchievements": "Réalisations Clés",
+    "achievementsSubtitle": "Jalons qui marquent notre parcours d'impact et de transformation",
+    "foundationImpact": "Impact de la Fondation FMMPS",
+    "foundationSubtitle": "Trois piliers de transformation dans nos communautés",
+    "joinMovement": "Rejoignez le Mouvement",
+    "joinText": "Ensemble, nous pouvons créer un changement significatif et construire un avenir meilleur pour tous les Congolais. Votre soutien fait la différence.",
+    "downloadPdf": "Télécharger Vision & Objectifs PDF",
+    "joinCause": "Rejoindre la Cause / Bénévolat"
   },
   "about": {
     "title": "À Propos de Marie Mwape Kashimbo",
@@ -22,7 +35,15 @@
     "values": "Valeurs & Mission",
     "valuesText": "Guidée par les principes de compassion, d'intégrité et de responsabilité sociale, Marie croit au pouvoir de l'action collective pour créer un changement significatif. Son travail s'étend à travers plusieurs secteurs incluant la santé, l'éducation et le bien-être social.",
     "journey": "Son Parcours",
-    "journeyText": "De ses débuts comme organisatrice communautaire à la fondation de la Fondation FMMPS et son entrée dans l'arène politique, le parcours de Marie reflète son engagement profond à servir les autres et à construire un avenir meilleur pour tous les Congolais."
+    "journeyText": "De ses débuts comme organisatrice communautaire à la fondation de la Fondation FMMPS et son entrée dans l'arène politique, le parcours de Marie reflète son engagement profond à servir les autres et à construire un avenir meilleur pour tous les Congolais.",
+    "coreValues": "Valeurs Fondamentales",
+    "coreValuesSubtitle": "Les principes qui guident chaque décision et action dans notre mission",
+    "journeyTimeline": "Chronologie du Parcours",
+    "timelineSubtitle": "Étapes clés du chemin de service et de leadership de Marie",
+    "personalMoments": "Moments Personnels",
+    "personalSubtitle": "Dans les coulisses avec Marie Mwape Kashimbo",
+    "keyAchievements": "Réalisations Clés",
+    "achievementsSubtitle": "Jalons qui marquent notre parcours d'impact et de transformation"
   },
   "foundation": {
     "title": "Fondation FMMPS",
@@ -30,7 +51,11 @@
     "overview": "La Fondation FMMPS, fondée par Marie Mwape Kashimbo, se consacre au soutien des membres les plus vulnérables de la société, notamment les orphelins, les personnes handicapées, les albinos et ceux confrontés à des défis de santé mentale.",
     "projects": "Nos Projets",
     "impact": "Histoires d'Impact",
-    "impactText": "Grâce à des interventions directes et des programmes de soutien communautaire, la Fondation a touché des milliers de vies, fournissant des services essentiels, des soins de santé et de l'espoir à ceux qui en ont le plus besoin."
+    "impactText": "Grâce à des interventions directes et des programmes de soutien communautaire, la Fondation a touché des milliers de vies, fournissant des services essentiels, des soins de santé et de l'espoir à ceux qui en ont le plus besoin.",
+    "impactSubtitle": "Notre approche globale pour soutenir les populations vulnérables",
+    "foundationGallery": "Galerie de la Fondation",
+    "gallerySubtitle": "Moments qui capturent l'essence de notre mission",
+    "thirdAnniversary": "Célébration du Troisième Anniversaire"
   },
   "political": {
     "title": "Parcours Politique",
@@ -40,14 +65,16 @@
     "advocacy": "Travail de Plaidoyer",
     "advocacyText": "Sa plateforme politique se concentre sur le bien-être social, la réforme des soins de santé, l'accès à l'éducation et la création de politiques qui protègent les populations les plus vulnérables de la société congolaise.",
     "goals": "Objectifs Politiques",
-    "goalsText": "Œuvrer pour une réforme sociale globale, l'amélioration des systèmes de santé et des structures de gouvernance qui privilégient la dignité humaine et la justice sociale."
+    "goalsText": "Œuvrer pour une réforme sociale globale, l'amélioration des systèmes de santé et des structures de gouvernance qui privilégient la dignité humaine et la justice sociale.",
+    "fromPhilanthropy": "« De la Philanthropie à la Politique »"
   },
   "media": {
     "title": "Médias & Actualités",
     "subtitle": "Couverture et Reconnaissance",
     "articles": "Articles Récents",
     "recognition": "Prix & Reconnaissance",
-    "recognitionText": "Le travail de Marie a été reconnu par divers prix et couvertures médiatiques, soulignant ses contributions significatives à la société congolaise."
+    "recognitionText": "Le travail de Marie a été reconnu par divers prix et couvertures médiatiques, soulignant ses contributions significatives à la société congolaise.",
+    "mediaHighlights": "Points Forts Médiatiques"
   },
   "getInvolved": {
     "title": "S'Impliquer",
@@ -62,10 +89,58 @@
     "email": "Email",
     "message": "Message",
     "send": "Envoyer le Message",
-    "donateNow": "Faire un Don"
+    "donateNow": "Faire un Don",
+    "joinCommunity": "Rejoignez Notre Communauté"
   },
   "footer": {
     "copyright": "© 2024 Marie Mwape Kashimbo. Tous droits réservés.",
-    "mission": "Animée par la compassion, engagée pour le changement."
+    "mission": "Animée par la compassion, engagée pour le changement.",
+    "quickLinks": "Liens Rapides"
+  },
+  "achievements": {
+    "foundedFmmps": "Fondation de FMMPS",
+    "foundedDescription": "Création de la fondation pour soutenir les populations vulnérables",
+    "actuStars": "Nomination Actu Stars Awards",
+    "actuDescription": "Reconnue pour son service communautaire exceptionnel",
+    "joinedNogec": "Adhésion à NOGEC",
+    "nogecDescription": "Entrée en politique formelle pour amplifier les efforts de plaidoyer",
+    "aidPrograms": "Programmes d'Aide",
+    "aidDescription": "Direction de nombreux programmes à Kisangani et Lubunga"
+  },
+  "pillars": {
+    "foodDistribution": "Distribution d'Aliments & Produits Essentiels",
+    "foodDescription": "Fournir les nécessités de base aux familles dans le besoin à travers la province de Tshopo.",
+    "infrastructureAdvocacy": "Plaidoyer pour les Infrastructures",
+    "infrastructureDescription": "Plaider pour de meilleures infrastructures et services publics dans les communautés.",
+    "communityEvents": "Événements Communautaires",
+    "eventsDescription": "Organiser des événements qui rassemblent les communautés et favorisent l'unité."
+  },
+  "chat": {
+    "greeting": "Bonjour 👋 Je suis l'assistant de Marie Mwape. Comment puis-je vous aider ?",
+    "placeholder": "Posez une question sur le travail de Marie...",
+    "title": "Assistant de Marie",
+    "subtitle": "Posez-moi n'importe quoi !",
+    "responses": {
+      "foundation": "La Fondation FMMPS, fondée en 2021, se concentre sur trois piliers principaux : Distribution d'Aliments & Produits Essentiels, Plaidoyer pour les Infrastructures, et Événements Communautaires. Marie a aidé plus de 1000+ personnes à travers la province de Tshopo.",
+      "political": "Marie a rejoint NOGEC (Organisation Nationale pour la Bonne Gouvernance et le Changement) en juillet 2025 pour amplifier son travail de plaidoyer par la politique formelle, se concentrant sur le bien-être social et la réforme des soins de santé.",
+      "volunteer": "Vous pouvez vous impliquer en visitant notre section « S'Impliquer » où vous pouvez faire du bénévolat, faire un don, ou nous contacter directement. Nous avons toujours besoin de personnes passionnées pour aider notre cause !",
+      "about": "Marie Mwape Kashimbo, connue sous le nom de « Maman Bolingo », est une philanthrope congolaise et leader communautaire qui a consacré sa vie à soutenir les populations vulnérables en RDC.",
+      "contact": "Vous pouvez contacter Marie via notre formulaire de contact, par email à contact@mariemwape.org, ou via nos réseaux sociaux. Nous serions ravis de vous entendre !",
+      "default": "Merci pour votre question ! Pour des informations plus détaillées, veuillez visiter les sections pertinentes de notre site web ou nous contacter directement."
+    }
+  },
+  "stats": {
+    "livesImpacted": "Vies Impactées",
+    "childrenSupported": "Enfants Soutenus",
+    "communitiesReached": "Communautés Atteintes",
+    "yearsOfService": "Années de Service"
+  },
+  "values": {
+    "compassion": "Compassion",
+    "compassionDesc": "L'empathie profonde guide chaque action que nous entreprenons pour notre communauté",
+    "community": "Communauté",
+    "communityDesc": "Construire des liens plus forts par l'action collective et le soutien",
+    "impact": "Impact",
+    "impactDesc": "Créer un changement mesurable et durable dans la vie des gens"
   }
 }

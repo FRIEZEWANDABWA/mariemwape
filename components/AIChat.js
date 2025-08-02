@@ -1,25 +1,44 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MessageCircle, X, Send, Bot } from 'lucide-react';
 
 export default function AIChat() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    {
-      type: 'bot',
-      text: 'Hello! I\'m Marie\'s AI assistant. I can help you learn about her foundation FMMPS, her political journey, or how to get involved. What would you like to know?'
-    }
-  ]);
+  const [hasAutoOpened, setHasAutoOpened] = useState(false);
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const { t } = useTranslation();
 
-  const responses = {
-    'foundation': 'The FMMPS Foundation, founded in 2021, focuses on three main pillars: Food & Essentials Distribution, Infrastructure Advocacy, and Community Events. Marie has helped over 1000+ people across Tshopo province.',
-    'political': 'Marie joined NOGEC (National Organization for Good Governance and Change) in July 2025 to amplify her advocacy work through formal politics, focusing on social welfare and healthcare reform.',
-    'volunteer': 'You can get involved by visiting our "Get Involved" section where you can volunteer, donate, or contact us directly. We always need passionate people to help our cause!',
-    'about': 'Marie Mwape Kashimbo, known as "Maman Bolingo," is a Congolese philanthropist and community leader who has dedicated her life to supporting vulnerable populations in DRC.',
-    'contact': 'You can reach Marie through our contact form, email at contact@mariemwape.org, or through our social media channels. We\'d love to hear from you!'
-  };
+  // Auto-open chat after 5 seconds on first visit
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!hasAutoOpened) {
+        setIsOpen(true);
+        setHasAutoOpened(true);
+        setMessages([{
+          type: 'bot',
+          text: t('chat.greeting')
+        }]);
+        
+        // Auto-minimize after 10 seconds if no interaction
+        setTimeout(() => {
+          setIsOpen(false);
+        }, 10000);
+      }
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [hasAutoOpened, t]);
+
+  // Update greeting when language changes
+  useEffect(() => {
+    if (messages.length > 0) {
+      setMessages([{
+        type: 'bot',
+        text: t('chat.greeting')
+      }]);
+    }
+  }, [t]);
 
   const handleSend = () => {
     if (!input.trim()) return;
@@ -29,18 +48,18 @@ export default function AIChat() {
 
     // Simple keyword matching for responses
     const lowerInput = input.toLowerCase();
-    let response = 'Thank you for your question! For more detailed information, please visit the relevant sections of our website or contact us directly.';
+    let response = t('chat.responses.default');
 
-    if (lowerInput.includes('foundation') || lowerInput.includes('fmmps')) {
-      response = responses.foundation;
-    } else if (lowerInput.includes('political') || lowerInput.includes('nogec')) {
-      response = responses.political;
-    } else if (lowerInput.includes('volunteer') || lowerInput.includes('help') || lowerInput.includes('involved')) {
-      response = responses.volunteer;
-    } else if (lowerInput.includes('about') || lowerInput.includes('marie') || lowerInput.includes('who')) {
-      response = responses.about;
-    } else if (lowerInput.includes('contact') || lowerInput.includes('reach')) {
-      response = responses.contact;
+    if (lowerInput.includes('foundation') || lowerInput.includes('fmmps') || lowerInput.includes('fondation')) {
+      response = t('chat.responses.foundation');
+    } else if (lowerInput.includes('political') || lowerInput.includes('nogec') || lowerInput.includes('politique')) {
+      response = t('chat.responses.political');
+    } else if (lowerInput.includes('volunteer') || lowerInput.includes('help') || lowerInput.includes('involved') || lowerInput.includes('bénévol') || lowerInput.includes('aide') || lowerInput.includes('impliqu')) {
+      response = t('chat.responses.volunteer');
+    } else if (lowerInput.includes('about') || lowerInput.includes('marie') || lowerInput.includes('who') || lowerInput.includes('propos') || lowerInput.includes('qui')) {
+      response = t('chat.responses.about');
+    } else if (lowerInput.includes('contact') || lowerInput.includes('reach') || lowerInput.includes('contacter')) {
+      response = t('chat.responses.contact');
     }
 
     setTimeout(() => {
@@ -50,12 +69,23 @@ export default function AIChat() {
     setInput('');
   };
 
+  const openChat = () => {
+    setIsOpen(true);
+    if (messages.length === 0) {
+      setMessages([{
+        type: 'bot',
+        text: t('chat.greeting')
+      }]);
+    }
+  };
+
   return (
     <>
       <div className="fixed bottom-6 right-6 z-50">
         <button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => isOpen ? setIsOpen(false) : openChat()}
           className="bg-gradient-to-r from-primary-500 to-accent-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 animate-pulse-slow"
+          aria-label={isOpen ? "Close chat" : "Open chat"}
         >
           {isOpen ? <X size={24} /> : <Bot size={24} />}
         </button>
@@ -67,8 +97,8 @@ export default function AIChat() {
             <div className="flex items-center">
               <Bot className="mr-2" size={20} />
               <div>
-                <h3 className="font-semibold">Marie's AI Assistant</h3>
-                <p className="text-sm opacity-90">Ask me anything!</p>
+                <h3 className="font-semibold">{t('chat.title')}</h3>
+                <p className="text-sm opacity-90">{t('chat.subtitle')}</p>
               </div>
             </div>
           </div>
@@ -93,13 +123,14 @@ export default function AIChat() {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about Marie's work..."
+                placeholder={t('chat.placeholder')}
                 className="flex-1 border border-gray-300 dark:border-gray-600 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-700 dark:text-white"
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
               />
               <button
                 onClick={handleSend}
                 className="bg-primary-500 text-white p-2 rounded-full hover:bg-primary-600 transition-colors"
+                aria-label="Send message"
               >
                 <Send size={16} />
               </button>
